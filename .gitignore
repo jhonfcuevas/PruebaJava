@@ -1,0 +1,13 @@
+/ejb/build/
+/web/build/
+/ejb/dist/
+/build/
+/dist/
+/web/dist/
+/ejb/nbproject/
+/web/nbproject/
+/nbproject/
+nbproject/private/private.properties
+web/nbproject/jaxws-build.xml
+nbproject/private/private.xml
+
