@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author itoadmin
  */
 @Entity
-@Table(name = "MERCANCIAS")
+@Table(name = "mercancias")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Mercancias.findAll", query = "SELECT m FROM Mercancias m")
@@ -44,28 +44,28 @@ public class Mercancias implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
+    @Column(name = "id")
     private Integer id;
     @Size(max = 20)
-    @Column(name = "NOMBRE_PRODUCTO")
+    @Column(name = "nombre_producto")
     private String nombreProducto;
-    @Size(max = 30)
-    @Column(name = "CIUDAD_DESTINO")
+    @Size(max = 20)
+    @Column(name = "ciudad_destino")
     private String ciudadDestino;
-    @Size(max = 80)
-    @Column(name = "DIRECCION")
+    @Size(max = 20)
+    @Column(name = "direccion")
     private String direccion;
-    @Column(name = "FECHA_SALIDA")
-    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_salida")
+    @Temporal(TemporalType.TIME)
     private Date fechaSalida;
-    @Column(name = "PRECIO")
-    private Long precio;
+    @Column(name = "precio")
+    private Integer precio;
     @Size(max = 10)
-    @Column(name = "ESTADO_ENVIO")
+    @Column(name = "estado_envio")
     private String estadoEnvio;
-    @Column(name = "DESTINATARIO_ID")
+    @Column(name = "destinatario_id")
     private Integer destinatarioId;
-    @Column(name = "USUARIO_REGISTRO_ID")
+    @Column(name = "usuario_registro_id")
     private Integer usuarioRegistroId;
 
     public Mercancias() {
@@ -115,11 +115,11 @@ public class Mercancias implements Serializable {
         this.fechaSalida = fechaSalida;
     }
 
-    public Long getPrecio() {
+    public Integer getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Long precio) {
+    public void setPrecio(Integer precio) {
         this.precio = precio;
     }
 

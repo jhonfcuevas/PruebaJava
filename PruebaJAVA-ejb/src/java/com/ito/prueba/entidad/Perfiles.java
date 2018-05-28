@@ -6,6 +6,7 @@
 package com.ito.prueba.entidad;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -22,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author itoadmin
  */
 @Entity
-@Table(name = "PERFILES")
+@Table(name = "perfiles")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Perfiles.findAll", query = "SELECT p FROM Perfiles p")
@@ -34,32 +36,33 @@ public class Perfiles implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
-    private Integer id;
-    @Size(max = 20)
-    @Column(name = "PERFIL")
-    private String perfil;
+    @Column(name = "id")
+    @Temporal(TemporalType.TIME)
+    private Date id;
+    @Column(name = "perfil")
+    @Temporal(TemporalType.TIME)
+    private Date perfil;
 
     public Perfiles() {
     }
 
-    public Perfiles(Integer id) {
+    public Perfiles(Date id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Date getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Date id) {
         this.id = id;
     }
 
-    public String getPerfil() {
+    public Date getPerfil() {
         return perfil;
     }
 
-    public void setPerfil(String perfil) {
+    public void setPerfil(Date perfil) {
         this.perfil = perfil;
     }
 

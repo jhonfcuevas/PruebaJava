@@ -22,33 +22,33 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author itoadmin
  */
 @Entity
-@Table(name = "USUARIOS")
+@Table(name = "usuarios")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")
     , @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id")
     , @NamedQuery(name = "Usuarios.findByUsuario", query = "SELECT u FROM Usuarios u WHERE u.usuario = :usuario")
-    , @NamedQuery(name = "Usuarios.findByContrasena", query = "SELECT u FROM Usuarios u WHERE u.contrasena = :contrasena")
     , @NamedQuery(name = "Usuarios.findByPerfilId", query = "SELECT u FROM Usuarios u WHERE u.perfilId = :perfilId")
-    , @NamedQuery(name = "Usuarios.findByPersonaId", query = "SELECT u FROM Usuarios u WHERE u.personaId = :personaId")})
+    , @NamedQuery(name = "Usuarios.findByPersonaId", query = "SELECT u FROM Usuarios u WHERE u.personaId = :personaId")
+    , @NamedQuery(name = "Usuarios.findByContrasena", query = "SELECT u FROM Usuarios u WHERE u.contrasena = :contrasena")})
 public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
+    @Column(name = "id")
     private Integer id;
     @Size(max = 20)
-    @Column(name = "USUARIO")
+    @Column(name = "usuario")
     private String usuario;
-    @Size(max = 20)
-    @Column(name = "CONTRASENA")
-    private String contrasena;
-    @Column(name = "PERFIL_ID")
+    @Column(name = "perfil_id")
     private Integer perfilId;
-    @Column(name = "PERSONA_ID")
+    @Column(name = "persona_id")
     private Integer personaId;
+    @Size(max = 20)
+    @Column(name = "contrasena")
+    private String contrasena;
 
     public Usuarios() {
     }
@@ -73,14 +73,6 @@ public class Usuarios implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
     public Integer getPerfilId() {
         return perfilId;
     }
@@ -95,6 +87,14 @@ public class Usuarios implements Serializable {
 
     public void setPersonaId(Integer personaId) {
         this.personaId = personaId;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override

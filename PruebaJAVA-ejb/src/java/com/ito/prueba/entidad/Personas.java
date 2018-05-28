@@ -6,6 +6,7 @@
 package com.ito.prueba.entidad;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -22,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author itoadmin
  */
 @Entity
-@Table(name = "PERSONAS")
+@Table(name = "personas")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Personas.findAll", query = "SELECT p FROM Personas p")
@@ -36,29 +39,30 @@ public class Personas implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "ID")
-    private Integer id;
+    @Column(name = "id")
+    @Temporal(TemporalType.TIME)
+    private Date id;
     @Size(max = 20)
-    @Column(name = "NOMBRE")
+    @Column(name = "nombre")
     private String nombre;
     @Size(max = 20)
-    @Column(name = "APELLIDO")
+    @Column(name = "apellido")
     private String apellido;
-    @Column(name = "NUMERO_DOCUMENTO")
-    private Long numeroDocumento;
+    @Column(name = "numero_documento")
+    private Integer numeroDocumento;
 
     public Personas() {
     }
 
-    public Personas(Integer id) {
+    public Personas(Date id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Date getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Date id) {
         this.id = id;
     }
 
@@ -78,11 +82,11 @@ public class Personas implements Serializable {
         this.apellido = apellido;
     }
 
-    public Long getNumeroDocumento() {
+    public Integer getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(Long numeroDocumento) {
+    public void setNumeroDocumento(Integer numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 
